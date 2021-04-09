@@ -5,6 +5,8 @@ class IngridientView extends StatelessWidget {
   IngridientView({this.date});
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: ListView.builder(itemBuilder: null),
+    );
   }
 }

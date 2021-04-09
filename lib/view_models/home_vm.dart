@@ -10,14 +10,13 @@ class HomeVm extends ChangeNotifier {
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(1995, 6, 16),
-        lastDate: selectedDate);
+        lastDate: DateTime(2030, 6, 16));
 
     selectedDate = picked;
     notifyListeners();
   }
 
   void ops(BuildContext context) async {
-    await getDate(context);
     Navigator.push(
         context,
         MaterialPageRoute(
