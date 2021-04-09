@@ -1,8 +1,9 @@
 class Ingredient {
   String title;
   String useBy;
-  bool isSelected;
-  Ingredient({this.title, this.useBy, this.isSelected});
+  bool isSelected = false;
+  bool isExpired = false;
+  Ingredient({this.title, this.useBy, this.isSelected, this.isExpired});
 
   Ingredient.fromJson(Map<String, dynamic> json) {
     title = json['title'];

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:tech_task/screens/list_ingredient.dart';
 
 class HomeVm extends ChangeNotifier {
@@ -16,12 +15,12 @@ class HomeVm extends ChangeNotifier {
     notifyListeners();
   }
 
-  void ops(BuildContext context) async {
+  void ops(BuildContext context, DateTime date) async {
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (_) => IngridientView(
-                  date: selectedDate,
+                  date: date,
                 )));
   }
 }

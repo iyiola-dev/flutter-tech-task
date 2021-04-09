@@ -52,7 +52,9 @@ class Home extends ConsumerWidget {
                 FlatButton(
                     color: Colors.blueGrey,
                     onPressed: () {
-                      context.read(homevm).ops(context);
+                      context
+                          .read(homevm)
+                          .ops(context, DateTime.parse(formatteddate));
                     },
                     child: Text('Next'))
               ],
