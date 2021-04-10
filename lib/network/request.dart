@@ -24,8 +24,11 @@ class RequestService {
   Future<List<Recipe>> getRecipes(List<String> params) async {
     List<Recipe> recipe = [];
     try {
-      final res = await http.get("$url/recipe?ingredient=$params");
-      List result = jsonDecode(res.body);
+      final res = await http.get("$url/recipes?ingredients=$params");
+
+      print(res.body.toString());
+      var result = jsonDecode(res.body);
+      print(result);
       result.forEach((element) {
         recipe.add(Recipe.fromJson(element));
       });

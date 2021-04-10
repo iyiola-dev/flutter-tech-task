@@ -1,14 +1,12 @@
-import 'package:tech_task/models/ingredient.dart';
-
 class Recipe {
   String title;
-  List<Ingredient> ingredients;
+  List<String> ingredients;
 
   Recipe({this.title, this.ingredients});
 
   Recipe.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    ingredients = json['ingredients'];
+    ingredients = json['ingredients'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {

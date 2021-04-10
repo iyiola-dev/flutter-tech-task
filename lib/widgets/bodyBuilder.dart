@@ -34,7 +34,7 @@ class BodyBuilder extends StatelessWidget {
         break;
 
       case ApiRequestStatus.error:
-        return errror(error, context, reload) as Widget;
+        return errror(error, context, reload);
         break;
       case ApiRequestStatus.loaded:
         return child;
@@ -45,20 +45,20 @@ class BodyBuilder extends StatelessWidget {
   }
 }
 
-Future errror(String e, BuildContext context, VoidCallback function) {
-  return showDialog(
-      context: context,
-      child: Column(
-        children: [
-          MaterialButton(
-            height: 30,
-            onPressed: function,
-            color: Colors.blue,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(e),
-        ],
-      ));
+Widget errror(String e, BuildContext context, VoidCallback function) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      SizedBox(
+        height: 20,
+      ),
+      Text(e),
+      MaterialButton(
+        height: 30,
+        onPressed: function,
+        color: Colors.blue,
+        child: Text("reload"),
+      ),
+    ],
+  );
 }

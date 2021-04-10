@@ -11,7 +11,7 @@ class IngredientVm extends ChangeNotifier {
   ApiRequestStatus status = ApiRequestStatus.uninitialized;
   List<Ingredient> ingredient = [];
   IngridientView view = IngridientView();
-
+  List<String> pickedIngredients = [];
   String error = '';
   IngredientVm() {
     getIngredients();
@@ -31,8 +31,23 @@ class IngredientVm extends ChangeNotifier {
     }
   }
 
-  void selectIngredient(Ingredient ingredient) {
-    ingredient.isSelected = !ingredient.isSelected;
+  void selectIngredient(Ingredient ingredients) {
+    bool picked;
+    ingredient.forEach((element) {
+      if (element.title == ingredients.title) {
+        element.isSelected = !element.isSelected;
+        picked = element.isSelected;
+        print(picked.toString());
+        notifyListeners();
+      }
+      if (picked = true) {
+        pickedIngredients.add(ingredients.title);
+        print(pickedIngredients);
+      } else {
+        pickedIngredients.remove(ingredients.title);
+      }
+    });
+
     notifyListeners();
   }
 
@@ -44,7 +59,7 @@ class IngredientVm extends ChangeNotifier {
           context,
           MaterialPageRoute(
               builder: (_) => RecipeView(
-                    ingridient: selectedIngredients,
+                    ingridient: pickedIngredients,
                   )));
     } else {
       var snackBar = SnackBar(
