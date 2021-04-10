@@ -1,0 +1,18 @@
+[
+    {
+      "title": "Ham",
+      "use-by": "2019-11-25"
+    },
+    {
+      "title": "Cheese",
+      "use-by": "2019-11-08"
+    },
+    {
+      "title": "Bread",
+      "use-by": "2019-11-01"
+    },
+    {
+      "title": "Butter",
+      "use-by": "2019-11-25"
+    }
+  ]
